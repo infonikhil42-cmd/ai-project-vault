@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhil Tiwari - AI Project Vault</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="vault-nav">
+        <div class="nav-left">
+            <div class="avatar-icon"><i class="fa-solid fa-cube"></i></div>
+            <span class="user-name">Nikhil Tiwari</span>
+            <span class="builder-badge"><i class="fa-solid fa-bolt"></i> AI VIBE BUILDER</span>
+        </div>
+        <div class="nav-right">
+            <div class="sync-status">
+                <span class="pulse-dot"></span>
+                <span>Auto-sync</span>
+                <i class="fa-solid fa-rotate"></i>
+            </div>
+            <!-- हेडर एडमिन ताला बटन -->
+            <button class="lock-btn" id="lock-trigger-btn" title="Admin Portal">
+                <i class="fa-solid fa-lock"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <header class="vault-hero">
+        <div class="vault-pill">
+            <i class="fa-solid fa-database"></i> Vault Active &bull; always online &bull; auto-sync <span class="green-dot"></span>
+        </div>
+        <h1 class="vault-title">AI Project Vault</h1>
+        <p class="vault-subtext">
+            A curated live collection of AI-driven web apps and digital solutions.<br>
+            Click any project card to view the live demo.
+        </p>
+    </header>
+
+    <!-- ================= PROJECTS GRID ================= -->
+    <main class="projects-container">
+        <div class="projects-grid" id="projects-grid">
+            <div class="loading-state">Loading live projects...</div>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="vault-footer">
+        <p>&copy; 2026 Nikhil Tiwari &bull; AI Project Vault &bull; every change syncs live to all devices</p>
+        <!-- 20% ओपेसिटी वाला सीक्रेट स्टार -->
+        <button class="secret-star" id="secret-star-btn" title="Admin Access">
+            <i class="fa-solid fa-star"></i>
+        </button>
+    </footer>
+
+    <!-- ================= 2-IN-1 ADMIN MODAL (POPUP) ================= -->
+    <div class="modal-overlay" id="admin-modal">
+        <div class="modal-window" id="modal-window">
+            <button class="close-x" id="modal-close-btn">&times;</button>
+
+            <!-- STEP 1: PASSWORD VERIFICATION VIEW -->
+            <div class="modal-view active" id="view-verify">
+                <div class="verify-lock-icon">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3>Admin Verification</h3>
+                <p>Enter the vault password to manage projects.</p>
+
+                <div class="verify-input-wrap">
+                    <i class="fa-solid fa-key key-icon"></i>
+                    <input type="password" id="vault-pass-input" placeholder="Vault password" autocomplete="off">
+                    <i class="fa-regular fa-eye eye-icon" id="toggle-pass-eye"></i>
+                </div>
+                <div class="err-text" id="verify-error">Incorrect password. Please try again.</div>
+
+                <button class="btn-unlock-vault" id="unlock-vault-btn">Unlock Vault</button>
+            </div>
+
+            <!-- STEP 2: EXPANDED ADMIN DASHBOARD VIEW -->
+            <div class="modal-view" id="view-dashboard">
+                <div class="dash-header">
+                    <div class="dash-title-left">
+                        <div class="shield-tag"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <h3>Vault Admin Dashboard</h3>
+                            <p>Changes sync live to every open device</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dash-body">
+                    <!-- LEFT COLUMN: ADD NEW PROJECT -->
+                    <div class="dash-col-left">
+                        <h4 class="col-title"><i class="fa-solid fa-plus"></i> ADD NEW PROJECT</h4>
+
+                        <form id="project-form">
+                            <div class="form-group">
+                                <input type="text" id="form-name" placeholder="Project name *" required>
+                            </div>
+
+                            <div class="form-group with-icon">
+                                <i class="fa-solid fa-link"></i>
+                                <input type="url" id="form-url" placeholder="Live URL * (https://...)" required>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea id="form-desc" rows="3" placeholder="Short description (optional)"></textarea>
+                            </div>
+
+                            <!-- IMAGE TABS -->
+                            <div class="image-source-tabs">
+                                <button type="button" class="img-tab active" id="tab-url-mode">Image URL</button>
+                                <button type="button" class="img-tab" id="tab-file-mode">Upload Photo</button>
+                            </div>
+
+                            <div class="form-group" id="url-input-block">
+                                <input type="url" id="form-img-url" placeholder="https://.../screenshot.png">
+                            </div>
+
+                            <div class="form-group" id="file-input-block" style="display: none;">
+                                <input type="file" id="form-img-file" accept="image/*">
+                            </div>
+
+                            <button type="submit" class="btn-save-vault" id="save-vault-btn">
+                                Save to Vault
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- RIGHT COLUMN: MANAGE PROJECTS -->
+                    <div class="dash-col-right">
+                        <h4 class="col-title"><i class="fa-solid fa-folder-open"></i> MANAGE PROJECTS (<span id="proj-count">0</span>)</h4>
+                        
+                        <div class="manage-list" id="manage-list">
+                            <!-- डेटाबेस प्रोजेक्ट्स यहाँ लोड होंगे -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Supabase JS Client CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>

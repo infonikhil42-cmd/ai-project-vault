@@ -1,0 +1,688 @@
+/* ========================================================
+   AI PROJECT VAULT - COMPLETE MASTER STYLESHEET
+   Dark Cyber Glassmorphism & Admin Dashboard
+   ======================================================== */
+
+:root {
+    --bg-dark: #0a1118;
+    --card-bg: #111c26;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-white: #ffffff;
+    --text-muted: #8b9bb4;
+    --accent-blue: #0088ff;
+    --accent-cyan: #00d2ff;
+    --badge-bg: rgba(0, 195, 255, 0.15);
+    --badge-color: #38bdf8;
+    --glow-cyan: rgba(0, 210, 255, 0.35);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= 1. NAVBAR ================= */
+.vault-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    background: rgba(10, 17, 24, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0088ff, #00d2ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    box-shadow: 0 4px 12px var(--glow-cyan);
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.3px;
+}
+
+.builder-badge {
+    background: var(--badge-bg);
+    color: var(--badge-color);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sync-status {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pulse-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+.lock-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    color: var(--text-muted);
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.lock-btn:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ================= 2. HERO SECTION ================= */
+.vault-hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.vault-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--card-border);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.green-dot {
+    width: 6px;
+    height: 6px;
+    background: #22c55e;
+    border-radius: 50%;
+}
+
+.vault-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+    background: linear-gradient(180deg, #ffffff 40%, #8ca2bf 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.vault-subtext {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ================= 3. CARDS GRID ================= */
+.projects-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 20px 24px 80px;
+    flex: 1;
+    width: 100%;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 210, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 136, 255, 0.2);
+}
+
+.card-img-wrap {
+    position: relative;
+    height: 190px;
+    width: 100%;
+    overflow: hidden;
+    background: #080e14;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tag-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(10, 17, 24, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+}
+
+.card-body {
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-title {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+}
+
+.card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 22px;
+    flex: 1;
+}
+
+.btn-open-live {
+    width: 100%;
+    padding: 13px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0088ff 0%, #00c6ff 100%);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 136, 255, 0.35);
+    transition: all 0.2s;
+}
+
+.btn-open-live:hover {
+    box-shadow: 0 12px 25px rgba(0, 198, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ================= 4. FOOTER ================= */
+.vault-footer {
+    border-top: 1px solid var(--card-border);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.secret-star {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    opacity: 0.2;
+    cursor: pointer;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.secret-star:hover {
+    opacity: 0.8;
+    color: var(--accent-cyan);
+}
+
+/* ================= 5. POPUP MODAL ARCHITECTURE ================= */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-window {
+    background: #0f1622;
+    border-radius: 24px;
+    position: relative;
+    border: 1px solid rgba(0, 210, 255, 0.25);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(0, 136, 255, 0.15);
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease;
+    overflow: hidden;
+    width: 440px;
+    max-width: 92vw;
+    padding: 36px 32px;
+}
+
+.modal-window.dashboard-mode {
+    width: 900px;
+    max-width: 95vw;
+    padding: 28px 32px 34px;
+}
+
+.close-x {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: #8b9bb4;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.close-x:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.modal-view {
+    display: none;
+}
+
+.modal-view.active {
+    display: block;
+}
+
+/* ================= 6. VERIFICATION VIEW ================= */
+#view-verify {
+    text-align: center;
+}
+
+.verify-lock-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(0, 136, 255, 0.2), rgba(0, 210, 255, 0.1));
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 18px;
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.25);
+}
+
+#view-verify h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+#view-verify p {
+    font-size: 13px;
+    color: #8b9bb4;
+    margin-bottom: 24px;
+}
+
+.verify-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.verify-input-wrap .key-icon {
+    position: absolute;
+    left: 16px;
+    color: #5d6f88;
+    font-size: 15px;
+}
+
+.verify-input-wrap .eye-icon {
+    position: absolute;
+    right: 16px;
+    color: #5d6f88;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.verify-input-wrap input {
+    width: 100%;
+    padding: 14px 44px;
+    background: rgba(8, 14, 22, 0.7);
+    border: 1.5px solid rgba(0, 210, 255, 0.45);
+    border-radius: 14px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.verify-input-wrap input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+}
+
+.err-text {
+    color: #ef4444;
+    font-size: 12px;
+    margin-bottom: 14px;
+    display: none;
+}
+
+.btn-unlock-vault {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #0b131d;
+    font-weight: 700;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    transition: transform 0.2s;
+}
+
+.btn-unlock-vault:hover {
+    transform: translateY(-2px);
+    background: #f1f5f9;
+}
+
+/* ================= 7. EXPANDED ADMIN DASHBOARD ================= */
+.dash-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+}
+
+.dash-title-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.shield-tag {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    color: #22c55e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.dash-title-left h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.dash-title-left p {
+    font-size: 12px;
+    color: #8b9bb4;
+}
+
+.dash-body {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 36px;
+}
+
+.col-title {
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    color: #5d6f88;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 14px;
+    position: relative;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: #141d29;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 13px;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #0088ff;
+}
+
+.form-group.with-icon input {
+    padding-left: 36px;
+}
+
+.form-group.with-icon i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #5d6f88;
+    font-size: 12px;
+}
+
+.image-source-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.img-tab {
+    flex: 1;
+    padding: 7px;
+    background: #141d29;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: #8b9bb4;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.img-tab.active {
+    background: rgba(0, 136, 255, 0.2);
+    border-color: #0088ff;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-save-vault {
+    width: 100%;
+    padding: 13px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0088ff 0%, #8b5cf6 100%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 8px 20px rgba(0, 136, 255, 0.3);
+    margin-top: 6px;
+}
+
+.btn-save-vault:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+}
+
+/* MANAGE LIST */
+.manage-list {
+    max-height: 380px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 6px;
+}
+
+.manage-item {
+    background: #141d29;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.2s;
+}
+
+.manage-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.manage-thumb {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #0b131d;
+}
+
+.manage-meta {
+    flex: 1;
+    overflow: hidden;
+}
+
+.manage-meta h5 {
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.manage-meta p {
+    font-size: 11px;
+    color: #5d6f88;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-delete-proj {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.btn-delete-proj:hover {
+    background: #ef4444;
+    color: #fff;
+}
+
+.loading-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px;
+}
+
+@media (max-width: 900px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .dash-body { grid-template-columns: 1fr; }
+    .vault-nav { padding: 18px 24px; }
+}
